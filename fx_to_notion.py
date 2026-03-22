@@ -80,3 +80,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+print("TOKEN PREFIX:", NOTION_TOKEN[:4])
