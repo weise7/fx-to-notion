@@ -2,6 +2,7 @@ name: Daily FX to Notion (23:59 KST)
 
 on:
   schedule:
+    # GitHub Actions cron은 UTC 기준입니다.
     # 23:59 KST = 14:59 UTC
     - cron: "59 14 * * *"
   workflow_dispatch:
@@ -10,9 +11,11 @@ jobs:
   run:
     runs-on: ubuntu-latest
     env:
+      # Node 20 -> 24 전환 경고 대응 (미리 Node 24로 실행)
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
