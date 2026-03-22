@@ -27,6 +27,6 @@ jobs:
         
       - name: Run
         env:
-          NOTION_TOKEN: $ secrets.NOTION_TOKEN 
-          NOTION_DATABASE_ID: $ secrets.NOTION_DATABASE_ID 
+          NOTION_TOKEN: ${{secrets.NOTION_TOKEN}} 
+          NOTION_DATABASE_ID: ${{{secrets.NOTION_DATABASE_ID}} 
         run: python fx_to_notion.py
