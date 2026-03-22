@@ -74,10 +74,11 @@ def main():
     now_kst = datetime.now(KST)
     record_date_str = now_kst.strftime("%Y-%m-%d")
 
+    print("TOKEN PREFIX:", NOTION_TOKEN[:4])  # ← 여기 추가 (ntn_ 기대)
+    
     rates = fetch_rates()
     create_page(record_date_str, rates)
     print("OK", record_date_str, rates)
 
 if __name__ == "__main__":
     main()
-print("TOKEN PREFIX:", NOTION_TOKEN[:4])
